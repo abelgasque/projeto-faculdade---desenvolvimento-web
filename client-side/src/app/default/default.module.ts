@@ -5,6 +5,7 @@ import { DefaultComponent } from './default.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     RouterModule,
     BrowserAnimationsModule,
+
+    SharedModule
   ]
 })
 export class DefaultModule { }
