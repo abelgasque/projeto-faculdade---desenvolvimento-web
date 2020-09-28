@@ -3,22 +3,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
 
-class Api extends RestController {
+class Pessoa extends RestController {
     
     function __construct() {
         parent::__construct();
         $this->load->model('pessoa_model'); 
     }
 
-    public function pessoas_post() {   
+    public function incluir_post() {   
         $data = [
-            'id_pessoa' => 0,
+            'id_pessoa' => $this->put('id_pessoa'),
             'nome' => $this->post('nome'),
             'sobrenome' => $this->post('sobrenome'),
             'cpf' => $this->post('cpf'),
             'tipo' => $this->post('tipo'),
             'genero' => $this->post('genero'),
-            'situacao' => $this->post('situacao')
+            'situacao' => $this->post('situacao'),
+            'email' => $this->post('email'),
+            'celular' => $this->post('celular'),
+            'telefone' => $this->post('telefone'),
+            'senha' => $this->post('senha'),
         ];
         $resp = $this->pessoa_model->insert($data);
         if($resp === true){
@@ -28,11 +32,20 @@ class Api extends RestController {
         }
     } 
 
-    public function pessoas_put() {   
+    public function alterar_put() {   
         $id = $this->uri->segment(3);
-        $data = array(
-            'nome' => $this->input->get('nome'),
-        );
+        $data = [
+            'nome' => $this->put('nome'),
+            'sobrenome' => $this->put('sobrenome'),
+            'cpf' => $this->put('cpf'),
+            'tipo' => $this->put('tipo'),
+            'genero' => $this->put('genero'),
+            'situacao' => $this->put('situacao'),
+            'email' => $this->put('email'),
+            'celular' => $this->put('celular'),
+            'telefone' => $this->put('telefone'),
+            'senha' => $this->put('senha'),
+        ];
         $resp = $this->pessoa_model->update($id, $data);
         if($resp === true) {
             $this->response("Pessoa alterada com sucesso", 200 );
@@ -44,10 +57,10 @@ class Api extends RestController {
         }
     }
 
-    public function pessoas_delete() {   
+    public function deletar_delete() {   
         $id = $this->uri->segment(3);
         if($id <= 0) {
-            $this->response(null, 404);
+            $this->response('Insira id da pessoa para deletar', 404);
         }
         $resp = $this->pessoa_model->deleteById($id);
         if($resp === true){
@@ -60,19 +73,21 @@ class Api extends RestController {
         }
     } 
 
-    public function pessoas_get() {
+    public function listar_get() {
         $data = $this->pessoa_model->getAll();
-        $id = $this->uri->segment(3);
-        if ($id === null) {
-            if ($data) {
-                $this->response($data, 200);
-            } else {
-                $this->response([
-                    'status' => false,
-                    'message' => 'Sem pessoas para listar'
-                ], 204 );
-            }
+        if ($data) {
+            $this->response($data, 200);
         } else {
+            $this->response([
+                'status' => false,
+                'message' => 'Sem pessoas para listar'
+            ], 204 );
+        }
+    }
+
+    public function buscar_get() {
+        $id = $this->uri->segment(3);
+        if ($id != null) {
             $lista = $this->pessoa_model->getById($id);
             if($lista != []) {
                 $this->response($lista, 200);   

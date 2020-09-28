@@ -9,6 +9,7 @@ import localePt from '@angular/common/locales/pt';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DefaultModule } from './default/default.module';
+import { PessoaModule } from './pessoa/pessoa.module';
 
 registerLocaleData(localePt);
 
@@ -23,7 +24,7 @@ registerLocaleData(localePt);
     FormsModule,
     RouterModule,
     DefaultModule,
-    
+    PessoaModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },

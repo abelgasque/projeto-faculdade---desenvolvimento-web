@@ -1,0 +1,43 @@
+<div class="row">
+    <p-panel class="col-12" header="Dados pessoais">
+        <ng-template pTemplate="icons">
+            <button></button>
+        </ng-template>
+        <div class="row p-fluid">
+            <div class="col-6 col-md-3">
+                <label>Nome</label>
+                <input type="text" name="nome" [(ngModel)]="pessoa.nome" required maxlength="20" pInputText>
+                <small>Campo obrigatorio</small>
+            </div>
+            <div class="col-12 col-md-4">
+                <label>Sobrenome</label>
+                <input type="text" name="sobrenome" [(ngModel)]="pessoa.sobrenome" required maxlength="50" pInputText>
+                <small>Campo obrigatorio</small>
+            </div>
+            <div class="col-6 col-md-2">
+                <label>CPF</label>
+                <input type="text" name="cpf" [(ngModel)]="pessoa.cpf" required maxlength="128" pInputText>
+                <small>Campo obrigatorio</small>
+            </div>
+            <div class="col-6 col-md-2">
+                <label>Genero</label>
+                <p-dropdown name="genero" [options]="generos" appendTo="body" [(ngModel)]="pessoa.genero"></p-dropdown>
+                <small>Campo obrigatorio</small>
+            </div>
+            <div class="col-6 col-md-2">
+                <label>Tipo</label>
+                <p-dropdown name="tipo" [options]="tipos" appendTo="body" [(ngModel)]="pessoa.tipo" required>
+                </p-dropdown>
+                <small>Campo obrigatorio</small>
+            </div>
+        </div>
+    </p-panel>
+    <p-panel class="col-12" header="Endereço">
+
+    </p-panel>
+</div>
+<br>
+<div class="row col-12">
+    <button class="p-button-outlined" icon="pi pi-check" label="Adicionar" pButton></button>
+    <p-button icon="pi pi-times" label="Cancelar"></p-button>
+</div>

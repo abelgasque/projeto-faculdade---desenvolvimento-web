@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DefaultComponent } from './default/default.component';
 import { HomeComponent } from './default/home/home.component';
+import { PessoaComponent } from './pessoa/pessoa.component';
 
 const routes: Routes = [
   {
@@ -11,10 +12,11 @@ const routes: Routes = [
       { path: '', component: HomeComponent }
     ]
   },
+  { path: 'pessoa', component: PessoaComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
-//   { path: 'nao-autorizado', component: NaoAutorizadoComponent },
-//   { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },
-//   { path: '**', redirectTo: 'pagina-nao-encontrada' }
+  //   { path: 'nao-autorizado', component: NaoAutorizadoComponent },
+  //   { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },
+  //   { path: '**', redirectTo: 'pagina-nao-encontrada' }
 ];
 
 @NgModule({

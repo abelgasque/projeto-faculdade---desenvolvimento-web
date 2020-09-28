@@ -26,8 +26,7 @@ class Pessoa_model extends CI_Model{
         $this->db->where('id_pessoa', $id);
         $buscarCliente = $this->db->get('pessoa');
         if($buscarCliente->result_array() != []){
-            $this->nome = $data['nome'];
-            $this->db->update('pessoa',$this,array('id_pessoa' => $id));
+            $this->db->update('pessoa', $data, array('id_pessoa'=>$id));
             return true;
         }else{
             return false;
