@@ -4,7 +4,7 @@
     </a>
     <a routerLinkActive="active" [routerLink]="['/']">Loja virtual</a>
     <span class="example-spacer"></span>
-    <a mat-button  routerLinkActive="active" [routerLink]="['/seguranca','login']">
+    <a mat-button routerLinkActive="active" [routerLink]="['/seguranca','login']">
         <mat-icon>login</mat-icon>
         Login
     </a>
@@ -19,18 +19,15 @@
         <a mat-icon-button (click)="this.displaySidebar = !this.displaySidebar">
             <mat-icon>close</mat-icon>
         </a>
-        <mat-selection-list [multiple]="false">
-            <div mat-subheader>Menu</div>
-            <mat-list-option>
-                <mat-icon mat-list-icon>people</mat-icon>
-                <a routerLinkActive="select" [routerLink]="['/pessoa']">Pessoas</a>
-            </mat-list-option>
-            <!-- <mat-divider></mat-divider>
-            <div mat-subheader>Menu</div>
-            <mat-list-option>
-                <mat-icon mat-list-icon>people</mat-icon>
-                <a routerLinkActive="select" [routerLink]="['/pessoa']">Pessoas</a>
-            </mat-list-option> -->
-        </mat-selection-list>
+        <p-table [value]="menu" [rowHover]="true" selectionMode="single">
+            <ng-template pTemplate="body" let-rowData>
+                <tr [pSelectableRow]="rowData" >
+                    <td>---{{rowData.categoria.nm}}</td>
+                </tr>
+                <tr *ngFor="let subcategoria of rowData.subcategorias" [pSelectableRow]="subcategoria" >
+                    <td>{{subcategoria.nm}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
     </p-scrollPanel>
 </p-sidebar>

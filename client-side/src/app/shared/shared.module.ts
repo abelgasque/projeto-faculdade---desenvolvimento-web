@@ -13,6 +13,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProdutoService } from '../produto/produto.service';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -31,11 +33,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
     SidebarModule,
     AccordionModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    TableModule
     
   ],
   exports: [
     NavbarComponent
+  ],
+  providers: [
+    ProdutoService
   ]
 })
 export class SharedModule { }

@@ -9,7 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DefaultModule } from './default/default.module';
 import { PessoaModule } from './pessoa/pessoa.module';
-import { SegurancaModule } from './seguranca/seguranca.module'
+import { SegurancaModule } from './seguranca/seguranca.module';
+import { ProdutoModule } from './produto/produto.module';
 
 registerLocaleData(localePt);
 
@@ -25,7 +26,8 @@ registerLocaleData(localePt);
 
     DefaultModule,
     PessoaModule,
-    SegurancaModule
+    SegurancaModule,
+    ProdutoModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },
