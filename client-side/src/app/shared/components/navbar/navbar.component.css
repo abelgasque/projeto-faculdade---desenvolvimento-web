@@ -5,3 +5,57 @@
 a:hover{
     color: #fff;
 }
+
+a{
+    color: #fff;
+}
+
+.mat-toolbar {
+    background-color: #1c1c1c;
+}
+
+p-sidebar .mat-subheader {
+    color: white;
+}
+
+p-sidebar a,
+p-sidebar .mat-icon {
+    color: white;
+}
+
+p-sidebar p-sidebar.mat-list-option a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+p-sidebar .mat-list-option:hover {
+    background-color: white;
+    border-left: 5px solid #3161dd !important;
+    color: black;
+}
+
+p-sidebar .mat-list-option:hover .mat-icon {
+    color: black;
+}
+
+p-sidebar .mat-list-option:hover a {
+    color: black;
+}
+
+p-sidebar ul li {
+    list-style: none;
+}
+
+p-sidebar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+p-sidebar a:hover,
+.mat-toolbar a:hover {
+    color: #fff;
+}
+
+p-sidebar .mat-divider {
+    background-color: #fff;
+}

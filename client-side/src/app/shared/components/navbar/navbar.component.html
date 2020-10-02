@@ -1,15 +1,36 @@
 <mat-toolbar color="primary">
-    <a mat-icon-button>
+    <a mat-icon-button (click)="displaySidebar=!displaySidebar">
         <mat-icon>menu</mat-icon>
     </a>
-    <span>Loja virtual</span>
+    <a routerLinkActive="active" [routerLink]="['/']">Loja virtual</a>
     <span class="example-spacer"></span>
-    <a mat-button>
+    <a mat-button  routerLinkActive="active" [routerLink]="['/seguranca','login']">
         <mat-icon>login</mat-icon>
         Login
     </a>
-    <a mat-button>
+    <a mat-button routerLinkActive="active" [routerLink]="['/seguranca','pessoa','incluir']">
         <mat-icon>people</mat-icon>
         Inscreva-se
     </a>
 </mat-toolbar>
+
+<p-sidebar [(visible)]="displaySidebar" [showCloseIcon]="false">
+    <p-scrollPanel [style]="{width: '100%', height: '100%'}">
+        <a mat-icon-button (click)="this.displaySidebar = !this.displaySidebar">
+            <mat-icon>close</mat-icon>
+        </a>
+        <mat-selection-list [multiple]="false">
+            <div mat-subheader>Menu</div>
+            <mat-list-option>
+                <mat-icon mat-list-icon>people</mat-icon>
+                <a routerLinkActive="select" [routerLink]="['/pessoa']">Pessoas</a>
+            </mat-list-option>
+            <!-- <mat-divider></mat-divider>
+            <div mat-subheader>Menu</div>
+            <mat-list-option>
+                <mat-icon mat-list-icon>people</mat-icon>
+                <a routerLinkActive="select" [routerLink]="['/pessoa']">Pessoas</a>
+            </mat-list-option> -->
+        </mat-selection-list>
+    </p-scrollPanel>
+</p-sidebar>

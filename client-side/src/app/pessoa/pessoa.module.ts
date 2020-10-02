@@ -12,6 +12,8 @@ import {DialogModule} from 'primeng/dialog';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {PanelModule} from 'primeng/panel';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {PasswordModule} from 'primeng/password';
 
 import { PessoaComponent } from './pessoa.component';
 import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
@@ -38,12 +40,17 @@ import { DropdownModule } from 'primeng/dropdown';
     ConfirmDialogModule,
     DropdownModule,
     PanelModule,
-
+    SelectButtonModule,
+    PasswordModule,
+    
     SharedModule
   ],
   providers: [
     PessoaService,
     ConfirmationService
+  ],
+  exports: [
+    PessoaFormComponent
   ]
 })
 export class PessoaModule { }

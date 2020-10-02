@@ -11,9 +11,10 @@
     <ng-template pTemplate="header">
         <tr style="text-align: center;">
             <th>Nome</th>
-            <th>CPF</th>
+            <th style="width: 10em;">CPF</th>
             <th>Email</th>
-            <th style="width: 7em;">Opções</th>
+            <th style="width: 10em;">Situação</th>
+            <th style="width: 5em;">Opções</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData>
@@ -21,11 +22,10 @@
             <td>{{rowData.nome}}</td>
             <td>{{rowData.cpf}}</td>
             <td>{{rowData.email}}</td>
+            <td>{{rowData.situacao}}</td>
             <td>
                 <button pButton pRipple type="button" class="p-button-rounded p-button-outlined" icon="pi pi-pencil"
                     (click)="getPessoa(rowData.id_pessoa)"></button>
-                <button pButton pRipple type="button" class="p-button-rounded p-button-outlined"
-                    icon="pi pi-trash" (click)="confirmarExclusao(rowData.id_pessoa)"></button>
             </td>
         </tr>
     </ng-template>
@@ -34,6 +34,7 @@
             <td>
                 <h2>Sem dados para listar.</h2>
             </td>
+            <td></td>
             <td></td>
             <td></td>
         </tr>
@@ -49,5 +50,5 @@
 </p-confirmDialog>
 
 <p-dialog [header]="titleDisplay+' pessoa'" [(visible)]="displayForm" [modal]="true" [style]="{width: '90%'}">
-    <app-pessoa-form [pessoa]="pessoa"></app-pessoa-form>
+    <app-pessoa-form [pessoa]="pessoa" (retornoPersistencia)="getRetornoFormPessoa($event)"></app-pessoa-form>
 </p-dialog>

@@ -1,7 +1,6 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy, registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -10,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DefaultModule } from './default/default.module';
 import { PessoaModule } from './pessoa/pessoa.module';
+import { SegurancaModule } from './seguranca/seguranca.module'
 
 registerLocaleData(localePt);
 
@@ -21,10 +21,11 @@ registerLocaleData(localePt);
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
     RouterModule,
+
     DefaultModule,
-    PessoaModule
+    PessoaModule,
+    SegurancaModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },

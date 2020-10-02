@@ -36,6 +36,13 @@ export class PessoaComponent implements OnInit {
     this.getAll();
   }
 
+  getRetornoFormPessoa(retorno: boolean){
+    if(retorno == true){
+      this.displayForm = false;
+      this.getAll();
+    }
+  }
+  
   novaPessoa(){
     this.pessoa = new Pessoa();
     this.titleDisplay = "Adicionar";

@@ -1,5 +1,5 @@
 export class Pessoa{
-    id_pessoa: number;
+    id_pessoa: number = 0;
     nome: string;
     sobrenome: string;
 	cpf: string;

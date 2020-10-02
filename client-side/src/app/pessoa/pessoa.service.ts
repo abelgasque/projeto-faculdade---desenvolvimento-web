@@ -8,6 +8,14 @@ export class PessoaService {
 
   constructor(private http: HttpClient) { }
 
+  incluir(entidade: any): Promise<any> {
+    return this.http.post<any>(`/api/pessoa/incluir`, entidade).toPromise();
+  }
+  
+  alterar(id:number, entidade: any): Promise<any> {
+    return this.http.put<any>(`/api/pessoa/alterar/${id}`, entidade).toPromise();
+  }
+
   getById(id: number): Promise<any> {
     return this.http.get<any>(`/api/pessoa/buscar/${id}`)
     .toPromise()
