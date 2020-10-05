@@ -71,6 +71,7 @@ CREATE TABLE produto(
     tamanho VARCHAR(10),
     cor VARCHAR(20),
     genero VARCHAR(20),
+    dt_atribuicao DATE NOT NULL,
     situacao VARCHAR(15) NOT NULL,
     fk_subcategoria BIGINT(20) NOT NULL,
 	CONSTRAINT fk_prod_subc FOREIGN KEY (fk_subcategoria) REFERENCES subcategoria(id_subcategoria)

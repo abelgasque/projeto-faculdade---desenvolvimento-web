@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutoService } from './produto.service';
 
 @Component({
   selector: 'app-produto',
@@ -7,9 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutoComponent implements OnInit {
 
-  constructor() { }
+  produtos: any[] = [];
+  produto;
+  displayForm: boolean = false;
+
+  constructor(
+    private produtoService: ProdutoService
+  ) { }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
+  novo(){
+    this.displayForm = true;
+  }
+
+  getProduto(id: number){
+    console.log(id);
+  }
+
+  getAll(){
+    this.produtoService.getAll()
+    .then(resp=>{
+      if(resp.length>0){
+        this.produtos = resp;
+      }
+    })
+    .catch(resp=>{
+      console.log(resp);
+    })
+  }
 }

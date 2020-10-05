@@ -15,6 +15,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProdutoService } from '../produto/produto.service';
 import { TableModule } from 'primeng/table';
+import {TreeTableModule} from 'primeng/treetable';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { TableModule } from 'primeng/table';
     SidebarModule,
     AccordionModule,
     ScrollPanelModule,
-    TableModule
+    TableModule,
+    TreeTableModule
     
   ],
   exports: [

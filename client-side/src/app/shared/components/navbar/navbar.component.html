@@ -14,20 +14,25 @@
     </a>
 </mat-toolbar>
 
-<p-sidebar [(visible)]="displaySidebar" [showCloseIcon]="false">
+<p-sidebar [(visible)]="displaySidebar" [showCloseIcon]="false" >
     <p-scrollPanel [style]="{width: '100%', height: '100%'}">
         <a mat-icon-button (click)="this.displaySidebar = !this.displaySidebar">
             <mat-icon>close</mat-icon>
         </a>
-        <p-table [value]="menu" [rowHover]="true" selectionMode="single">
-            <ng-template pTemplate="body" let-rowData>
-                <tr [pSelectableRow]="rowData" >
-                    <td>---{{rowData.categoria.nm}}</td>
-                </tr>
-                <tr *ngFor="let subcategoria of rowData.subcategorias" [pSelectableRow]="subcategoria" >
-                    <td>{{subcategoria.nm}}</td>
+        <p-treeTable [value]="menu" selectionMode="single" #tt *ngIf="this.displaySidebar">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th [ngClass]="'kb-row'">Categorias</th>
                 </tr>
             </ng-template>
-        </p-table>
+            <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+                <tr [ttSelectableRow]="rowNode">
+                    <td [ngClass]="'kb-row'">
+                        <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+                        {{rowData.name}}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-treeTable>
     </p-scrollPanel>
 </p-sidebar>

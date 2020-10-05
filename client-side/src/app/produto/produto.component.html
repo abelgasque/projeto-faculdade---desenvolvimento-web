@@ -1,1 +1,54 @@
-<p>produto works!</p>
+<app-navbar></app-navbar>
+<p-table [value]="produtos" [responsive]="true" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Registro {first} até {last} com total de {totalRecords} registros">
+    <ng-template pTemplate="caption">
+        <div class="ui-helper-clearfix" style="text-align: center">
+            Lista de produtos
+            <button type="button" class="p-button-outlined" iconPos="left" style="float:right" icon="pi pi-plus"
+                label="Adicionar" (click)="novo()" pButton></button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr style="text-align: center;">
+            <th>Nome</th>
+            <th style="width: 10em;">Data Atribuição</th>
+            <th style="width: 10em;">Valor</th>
+            <th style="width: 10em;">Situação</th>
+            <th style="width: 5em;">Opções</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+        <tr class="ui-selectable-row" style="text-align: center;">
+            <td>{{rowData.nm}}</td>
+            <td>{{rowData.vl}}</td>
+            <td>{{rowData.dt_atribuicao}}</td>
+            <td>{{rowData.situacao}}</td>
+            <td>
+                <button pButton pRipple type="button" class="p-button-rounded p-button-outlined" icon="pi pi-pencil"
+                    (click)="getProduto(rowData.id_produto)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td>
+                <h2>Sem dados para listar.</h2>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-confirmDialog header="Alerta" icon="pi pi-exclamation-triangle" #confirmacao>
+    <p-footer>
+        <button class="p-button-outlined" type="button" icon="pi pi-check" label="Sim" (click)="confirmacao.accept()"
+            pButton></button>
+        <button type="button" icon="pi pi-times" label="Não" (click)="confirmacao.reject()" pButton></button>
+    </p-footer>
+</p-confirmDialog>
+
+<p-dialog header="Adicionar" [(visible)]="displayForm" [modal]="true" [style]="{width: '90%'}">
+
+</p-dialog>

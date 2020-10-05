@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './default/default.component';
 import { HomeComponent } from './default/home/home.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
+import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './seguranca/login/login.component';
 import { SegurancaPessoaComponent } from './seguranca/seguranca-pessoa/seguranca-pessoa.component';
 import { SegurancaComponent } from './seguranca/seguranca.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
     ]
   },
   { path: 'pessoa', component: PessoaComponent },
+  { path: 'produto', component: ProdutoComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
   //   { path: 'nao-autorizado', component: NaoAutorizadoComponent },
   //   { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },
