@@ -13,14 +13,18 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { PanelModule } from 'primeng/panel';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { ProdutoComponent } from './produto.component';
 import { ProdutoService } from './produto.service';
 import { SharedModule } from '../shared/shared.module';
+import { ProdutoFormComponent } from './produto-form/produto-form.component';
 
 @NgModule({
   declarations: [
-    ProdutoComponent
+    ProdutoComponent,
+    ProdutoFormComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +41,9 @@ import { SharedModule } from '../shared/shared.module';
     DropdownModule,
     PanelModule,
     SelectButtonModule,
-
+    CalendarModule,
+    InputTextareaModule,
+    
     SharedModule
   ],
   providers: [

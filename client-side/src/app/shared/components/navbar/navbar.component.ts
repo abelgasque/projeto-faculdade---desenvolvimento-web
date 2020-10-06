@@ -15,7 +15,9 @@ export class CategoriaDTO {
 export class NavbarComponent implements OnInit {
 
   displaySidebar: boolean = false;
+  displaySpinner: boolean = false;
   menu: TreeNode[] = [];
+
   constructor(private produtoService: ProdutoService) {
     this.getcategorias();
   }
@@ -23,6 +25,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {}
 
   getcategorias() {
+    this.displaySpinner = true;
     let lista = [];
     this.produtoService.getAllCategorias()
       .then(responseCategoria => {
@@ -50,13 +53,16 @@ export class NavbarComponent implements OnInit {
             })
             .catch(response => {
               console.log(response);
+              this.displaySpinner = false;
             });
           lista.push(dataCategoria);
         }
         this.menu = lista;
+        this.displaySpinner = false;
       })
       .catch(response => {
         console.log(response);
+        this.displaySpinner = false;
       });
   }
 

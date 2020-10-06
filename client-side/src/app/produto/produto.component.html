@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <p-table [value]="produtos" [responsive]="true" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
     currentPageReportTemplate="Registro {first} até {last} com total de {totalRecords} registros">
     <ng-template pTemplate="caption">
@@ -20,8 +19,8 @@
     <ng-template pTemplate="body" let-rowData>
         <tr class="ui-selectable-row" style="text-align: center;">
             <td>{{rowData.nm}}</td>
-            <td>{{rowData.vl}}</td>
             <td>{{rowData.dt_atribuicao}}</td>
+            <td>{{rowData.vl}}</td>
             <td>{{rowData.situacao}}</td>
             <td>
                 <button pButton pRipple type="button" class="p-button-rounded p-button-outlined" icon="pi pi-pencil"
@@ -50,5 +49,5 @@
 </p-confirmDialog>
 
 <p-dialog header="Adicionar" [(visible)]="displayForm" [modal]="true" [style]="{width: '90%'}">
-
+    <app-produto-form [produto]="produto"></app-produto-form>
 </p-dialog>

@@ -3,6 +3,7 @@
     padding: inherit;
     background: #FFFFFF;
     font-family: sans-serif;
+    min-height: 100% !important;
   
   }
   

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Produto } from '../util/model';
 import { ProdutoService } from './produto.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { ProdutoService } from './produto.service';
 export class ProdutoComponent implements OnInit {
 
   produtos: any[] = [];
-  produto;
-  displayForm: boolean = false;
+  produto = new Produto();
+  displayForm: boolean = true;
 
   constructor(
     private produtoService: ProdutoService
@@ -25,7 +26,7 @@ export class ProdutoComponent implements OnInit {
   }
 
   getProduto(id: number){
-    console.log(id);
+    this.displayForm = true;
   }
 
   getAll(){

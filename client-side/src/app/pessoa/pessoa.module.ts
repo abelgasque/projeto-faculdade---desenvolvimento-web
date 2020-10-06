@@ -20,11 +20,12 @@ import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
 import { PessoaService } from './pessoa.service'
 import { SharedModule } from '../shared/shared.module';
 import { DropdownModule } from 'primeng/dropdown';
+import { PessoaEnderecosComponent } from './pessoa-enderecos/pessoa-enderecos.component';
 
 @NgModule({
   declarations: [
     PessoaComponent, 
-    PessoaFormComponent
+    PessoaFormComponent, PessoaEnderecosComponent
   ],
   imports: [
     CommonModule,

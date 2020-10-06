@@ -1,3 +1,4 @@
+<app-spinner [hidden]="!displaySpinner"></app-spinner>
 <mat-toolbar color="primary">
     <a mat-icon-button (click)="displaySidebar=!displaySidebar">
         <mat-icon>menu</mat-icon>
@@ -13,21 +14,23 @@
         Inscreva-se
     </a>
 </mat-toolbar>
-
-<p-sidebar [(visible)]="displaySidebar" [showCloseIcon]="false" >
+<p-sidebar [(visible)]="displaySidebar" [showCloseIcon]="false" [blockScroll]="true">
     <p-scrollPanel [style]="{width: '100%', height: '100%'}">
-        <a mat-icon-button (click)="this.displaySidebar = !this.displaySidebar">
-            <mat-icon>close</mat-icon>
-        </a>
+
         <p-treeTable [value]="menu" selectionMode="single" #tt *ngIf="this.displaySidebar">
             <ng-template pTemplate="header">
                 <tr>
-                    <th [ngClass]="'kb-row'">Categorias</th>
+                    <th [ngClass]="'kb-row'">
+                        <a mat-icon-button (click)="this.displaySidebar = !this.displaySidebar">
+                            <mat-icon>close</mat-icon>
+                        </a>
+                        Filtro por categorias
+                    </th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
                 <tr [ttSelectableRow]="rowNode">
-                    <td [ngClass]="'kb-row'">
+                    <td>
                         <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
                         {{rowData.name}}
                     </td>

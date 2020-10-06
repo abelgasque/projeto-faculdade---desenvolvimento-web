@@ -1,0 +1,74 @@
+<div class="col-12">
+    <form class="row p-fluid" #formPessoa="ngForm" autocomplete="off">
+        <div class="col-12 col-md-6">
+            <label>Nome</label>
+            <input type="text" name="nm" [(ngModel)]="produto.nm" required maxlength="20" pInputText>
+            <small class="obrigatorio">Campo obrigatorio</small>
+        </div>
+        <div class="col-6 col-md-2">
+            <label>Valor</label>
+            <input type="text" name="vl" [(ngModel)]="produto.vl" required  maxlength="50" pInputText>
+            <small class="obrigatorio">Campo obrigatorio</small>
+        </div>
+        <div class="col-6 col-md-2">
+            <label>Data atribuição</label>
+            <p-calendar inputId="basic" name="dt_atribuicao" [(ngModel)]="produto.dt_atribuicao" appendTo="body"
+                [showIcon]="true" required></p-calendar>
+            <small class="obrigatorio">Campo obrigatorio</small>
+        </div>
+        <div class="col-6 col-md-2">
+            <label>Genero</label>
+            <p-dropdown name="genero" [options]="generos" appendTo="body" [(ngModel)]="produto.genero"
+            placeholder="Selecione">
+            </p-dropdown>
+            <small class="opcional">Campo opcional</small>
+        </div>
+        <div class="col-4 col-md-2">
+            <label>Cor</label>
+            <input type="text" name="cor" [(ngModel)]="produto.cor" maxlength="20" pInputText>
+            <small class="opcional">Campo opcional</small>
+        </div>
+        <div class="col-4 col-md-2">
+            <label>Tamanho</label>
+            <input type="text" name="tamanho" [(ngModel)]="produto.tamanho" maxlength="10" pInputText>
+            <small class="opcional">Campo opcional</small>
+        </div>
+        <div class="col-4 col-md-2">
+            <label>Quantidade</label>
+            <input type="text" name="qtd" [(ngModel)]="produto.qtd" required  maxlength="14" pInputText>
+            <small class="obrigatorio">Campo obrigatorio</small>
+        </div>
+        <div class="col-4 col-md-2">
+            <label>Situação</label>
+            <p-selectButton [options]="situacoes" name="situacao" [(ngModel)]="produto.situacao" required>
+            </p-selectButton>
+            <small class="obrigatorio">Campo obrigatorio</small>
+        </div>
+        <div class="col-6 col-md-4">
+            <label>Categoria</label>
+            <p-dropdown name="categoria" [options]="categorias" appendTo="body"  placeholder="Selecione"
+            required #categoria>
+            </p-dropdown>
+            <small class="obrigatorio">Campo obrigatorio</small>
+        </div>
+        <div class="col-6 col-md-4">
+            <label>Subcategoria</label>
+            <p-dropdown name="subcategoria" [options]="subcategorias" appendTo="body" placeholder="Selecione"
+                [(ngModel)]="produto.fk_subcategoria" required>
+            </p-dropdown>
+            <small class="obrigatorio">Campo obrigatorio</small>
+        </div>
+        <div class="col-12">
+            <label>Descrição</label>
+            <textarea name="de" rows="5" autoResize="autoResize" [(ngModel)]="produto.de" 
+            maxlength="5000" pInputTextarea></textarea>
+            <small class="opcional">Campo opcional</small>
+        </div>
+        <div class="col-6 col-md-2">
+            <button pButton label="Adicionar"></button>
+        </div>
+        <div class="col-6 col-md-2">
+            <button pButton label="Cancelar"></button>
+        </div>
+    </form>
+</div>

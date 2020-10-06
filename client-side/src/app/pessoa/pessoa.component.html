@@ -1,4 +1,5 @@
-<app-navbar></app-navbar>
+<app-toasty></app-toasty>
+<app-spinner [hidden]="!displaySpinner"></app-spinner>
 <p-table [value]="pessoas" [responsive]="true" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
     currentPageReportTemplate="Registro {first} até {last} com total de {totalRecords} registros">
     <ng-template pTemplate="caption">
@@ -50,5 +51,7 @@
 </p-confirmDialog>
 
 <p-dialog [header]="titleDisplay+' pessoa'" [(visible)]="displayForm" [modal]="true" [style]="{width: '90%'}">
-    <app-pessoa-form [pessoa]="pessoa" (retornoPersistencia)="getRetornoFormPessoa($event)"></app-pessoa-form>
+    <app-toasty></app-toasty>
+    <app-pessoa-form [pessoa]="pessoa" (retornoPersistencia)="getRetornoFormPessoa($event)"
+    [isSituacao]="true" [isTipo]="true"></app-pessoa-form>
 </p-dialog>
