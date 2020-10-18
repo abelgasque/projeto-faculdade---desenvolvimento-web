@@ -1,9 +1,9 @@
 <app-spinner [hidden]="!displaySpinner"></app-spinner>
 <mat-toolbar color="primary">
-    <a mat-icon-button (click)="displaySidebar=!displaySidebar">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
-    </a>
-    <a routerLinkActive="active" [routerLink]="['/']">Loja virtual</a>
+    </button>
+    <a routerLinkActive="active" [routerLink]="['/']">Blog</a>
     <span class="example-spacer"></span>
     <a mat-button routerLinkActive="active" [routerLink]="['/seguranca','login']">
         <mat-icon>login</mat-icon>
@@ -14,6 +14,18 @@
         Inscreva-se
     </a>
 </mat-toolbar>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item routerLinkActive="active" [routerLink]="['/pessoas']">
+        <mat-icon>people</mat-icon>
+        <span>Pessoas</span>
+    </button>
+    <button mat-menu-item routerLinkActive="active" [routerLink]="['/publicacoes']">
+        <mat-icon>dialpad</mat-icon>
+        <span>Publicações</span>
+    </button>
+</mat-menu>
+
 <p-sidebar [(visible)]="displaySidebar" [showCloseIcon]="false" [blockScroll]="true">
     <p-scrollPanel [style]="{width: '100%', height: '100%'}">
 

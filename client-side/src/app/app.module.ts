@@ -7,11 +7,11 @@ import localePt from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 import { DefaultModule } from './default/default.module';
 import { PessoaModule } from './pessoa/pessoa.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
-import { ProdutoModule } from './produto/produto.module';
-import { SharedModule } from './shared/shared.module';
+import { PublicacoesModule } from './publicacoes/publicacoes.module';
 
 registerLocaleData(localePt);
 
@@ -25,11 +25,11 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     RouterModule,
 
+    SharedModule,
     DefaultModule,
     PessoaModule,
     SegurancaModule,
-    ProdutoModule,
-    SharedModule
+    PublicacoesModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },

@@ -10,45 +10,63 @@ class Pessoa extends RestController {
         $this->load->model('pessoa_model'); 
     }
 
-    public function incluir_post() {   
+    public function inserir_post() {   
         $data = [
             'id_pessoa' => $this->post('id_pessoa'),
+            'img_pessoa' => $this->post('img_pessoa'),
+            'img_fundo' => $this->post('img_fundo'),
             'nome' => $this->post('nome'),
             'sobrenome' => $this->post('sobrenome'),
             'cpf' => $this->post('cpf'),
-            'tipo' => $this->post('tipo'),
+            'tipo_pessoa' => $this->post('tipo_pessoa'),
             'genero' => $this->post('genero'),
-            'situacao' => $this->post('situacao'),
+            'situacao_pessoa' => $this->post('situacao_pessoa'),
             'email' => $this->post('email'),
             'celular' => $this->post('celular'),
             'telefone' => $this->post('telefone'),
             'senha' => $this->post('senha'),
+            'cep' => $this->post('cep'),
+            'uf' => $this->post('uf'),
+            'cidade' => $this->post('cidade'),
+            'bairro' => $this->post('bairro'),
+            'logradouro' => $this->post('logradouro'),
+            'complemento' => $this->post('complemento'),
+            'numero' => $this->post('numero')
         ];
         $resp = $this->pessoa_model->insert($data);
         if($resp === true){
-            $this->set_response("Pessoa criada com sucesso", 200);
+            $this->set_response("Pessoa inserida com sucesso", 200);
         }else{
-            $this->set_response("Erro ao criar pessoa", 404);
+            $this->set_response("Erro ao inserir pessoa", 404);
         }
     } 
 
-    public function alterar_put() {   
+    public function atualizar_put() {   
         $id = $this->uri->segment(3);
         $data = [
+            'img_pessoa' => $this->put('img_pessoa'),
+            'img_fundo' => $this->put('img_fundo'),
             'nome' => $this->put('nome'),
             'sobrenome' => $this->put('sobrenome'),
             'cpf' => $this->put('cpf'),
-            'tipo' => $this->put('tipo'),
+            'tipo_pessoa' => $this->put('tipo_pessoa'),
             'genero' => $this->put('genero'),
-            'situacao' => $this->put('situacao'),
+            'situacao_pessoa' => $this->put('situacao_pessoa'),
             'email' => $this->put('email'),
             'celular' => $this->put('celular'),
             'telefone' => $this->put('telefone'),
             'senha' => $this->put('senha'),
+            'cep' => $this->put('cep'),
+            'uf' => $this->put('uf'),
+            'cidade' => $this->put('cidade'),
+            'bairro' => $this->put('bairro'),
+            'logradouro' => $this->put('logradouro'),
+            'complemento' => $this->put('complemento'),
+            'numero' => $this->put('numero')
         ];
         $resp = $this->pessoa_model->update($id, $data);
         if($resp === true) {
-            $this->response("Pessoa alterada com sucesso", 200 );
+            $this->response("Pessoa atualizada com sucesso", 200 );
         }else {
             $this->response([
                 'status' => false,

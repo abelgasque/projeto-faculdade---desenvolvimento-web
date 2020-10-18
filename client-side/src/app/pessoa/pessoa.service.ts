@@ -9,11 +9,11 @@ export class PessoaService {
   constructor(private http: HttpClient) { }
 
   incluir(entidade: any): Promise<any> {
-    return this.http.post<any>(`/api/pessoa/incluir`, entidade).toPromise();
+    return this.http.post<any>(`/api/pessoa/inserir`, entidade).toPromise();
   }
   
   alterar(id:number, entidade: any): Promise<any> {
-    return this.http.put<any>(`/api/pessoa/alterar/${id}`, entidade).toPromise();
+    return this.http.put<any>(`/api/pessoa/atualizar/${id}`, entidade).toPromise();
   }
 
   getById(id: number): Promise<any> {

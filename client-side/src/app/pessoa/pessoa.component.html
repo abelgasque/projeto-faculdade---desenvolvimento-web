@@ -52,6 +52,6 @@
 
 <p-dialog [header]="titleDisplay+' pessoa'" [(visible)]="displayForm" [modal]="true" [style]="{width: '90%'}">
     <app-toasty></app-toasty>
-    <app-pessoa-form [pessoa]="pessoa" (retornoPersistencia)="getRetornoFormPessoa($event)"
-    [isSituacao]="true" [isTipo]="true"></app-pessoa-form>
+    <app-pessoa-form [pessoa]="pessoa" (retornoPersistencia)="getRetornoFormPessoa($event)" 
+    (displayForm)="displayForm=$event" [isSituacao]="true" [isTipo]="true"></app-pessoa-form>
 </p-dialog>

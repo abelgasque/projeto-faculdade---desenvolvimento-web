@@ -4,10 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './default/default.component';
 import { HomeComponent } from './default/home/home.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
-import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './seguranca/login/login.component';
 import { SegurancaPessoaComponent } from './seguranca/seguranca-pessoa/seguranca-pessoa.component';
 import { SegurancaComponent } from './seguranca/seguranca.component';
+import { PublicacoesComponent } from './publicacoes/publicacoes.component';
 
 const routes: Routes = [
   {
@@ -21,14 +21,12 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'pessoa/incluir', component: SegurancaPessoaComponent },
+      { path: 'pessoa/:idPessoa', component: SegurancaPessoaComponent },
     ]
   },
-  { path: 'pessoa', component: PessoaComponent },
-  { path: 'produto', component: ProdutoComponent },
-  { path: '', redirectTo: '', pathMatch: 'full' },
-  //   { path: 'nao-autorizado', component: NaoAutorizadoComponent },
-  //   { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },
-  //   { path: '**', redirectTo: 'pagina-nao-encontrada' }
+  { path: 'pessoas', component: PessoaComponent },
+  { path: 'publicacoes', component: PublicacoesComponent },
+  { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

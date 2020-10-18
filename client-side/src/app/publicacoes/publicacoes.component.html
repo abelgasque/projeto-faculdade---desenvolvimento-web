@@ -1,0 +1,53 @@
+<app-toasty></app-toasty>
+<app-spinner [hidden]="!displaySpinner"></app-spinner>
+<p-table [value]="publicacoes" [responsive]="true" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Registro {first} até {last} com total de {totalRecords} registros">
+    <ng-template pTemplate="caption">
+        <div class="ui-helper-clearfix" style="text-align: center">
+            Lista de publicações
+            <button type="button" class="p-button-outlined" iconPos="left" style="float:right" icon="pi pi-plus"
+                label="Adicionar" (click)="novaPublicacao()" pButton></button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr style="text-align: center;">
+            <th>Pessoa</th>
+            <th>Titulo publicação</th>
+            <th style="width: 10em;">Data publicação</th>
+            <th style="width: 10em;">Tipo</th>
+            <th style="width: 10em;">Situação</th>
+            <th style="width: 5em;">Opções</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+        <tr class="p-selectable-row" style="text-align: center;">
+            <td>{{rowData.nome}}</td>
+            <td>{{rowData.titulo}}</td>
+            <td>{{rowData.dt_publicacao}}</td>
+            <td>{{rowData.tipo_publicacao}}</td>
+            <td>{{rowData.situacao_publicacao}}</td>
+            <td>
+                <button pButton pRipple type="button" class="p-button-rounded p-button-outlined" icon="pi pi-pencil"
+                    (click)="getPublicacao(rowData.id_publicacao)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td>
+                <h2>Sem dados para listar.</h2>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-confirmDialog header="Alerta" icon="pi pi-exclamation-triangle" #confirmacao>
+    <p-footer>
+        <button class="p-button-outlined" type="button" icon="pi pi-check" label="Sim" (click)="confirmacao.accept()"
+            pButton></button>
+        <button type="button" icon="pi pi-times" label="Não" (click)="confirmacao.reject()" pButton></button>
+    </p-footer>
+</p-confirmDialog>
