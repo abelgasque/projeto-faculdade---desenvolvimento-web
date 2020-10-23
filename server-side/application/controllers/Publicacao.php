@@ -67,15 +67,8 @@ class Publicacao extends RestController {
     public function buscar_get() {
         $id = $this->uri->segment(3);
         if ($id != null) {
-            if(validarPessoaExistente($id)){
-                $lista = $this->publicacao_model->getById($id);
-                $this->response($lista, 200); 
-            }else{
-                $this->response([
-                    'status'=>false,
-                    'message'=>'Publicação não existe'
-                ],404);
-            }
+            $lista = $this->publicacao_model->getById($id);
+            $this->response($lista, 200); 
         }
     }
 

@@ -1,6 +1,12 @@
 <?php 
 class Pessoa_model extends CI_Model{
 
+    function getByCpf($cpf){
+        $sql = "SELECT * FROM pessoa WHERE cpf = ? LIMIT 1";
+        $query = $this->db->query($sql, array($cpf));
+        return $query->result_array();
+    }
+
     function getAll() {
         $query = $this->db->query("SELECT * FROM `pessoa` ORDER BY `nome` ASC");
         return $query->result_array();

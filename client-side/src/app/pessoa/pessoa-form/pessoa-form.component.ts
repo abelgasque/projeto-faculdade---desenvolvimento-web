@@ -19,8 +19,9 @@ export class PessoaFormComponent implements OnInit {
   tipos = [
     { label: 'Selecione', value: null },
     { label: 'Administrador', value: 'ADMINISTRADOR' },
-    { label: 'Funcionário', value: 'FUNCIONARIO' },
-    { label: 'Cliente', value: 'CLIENTE' },
+    { label: 'Coordenador', value: 'COORDENADOR' },
+    { label: 'Professor', value: 'PROFESSOR' },
+    { label: 'Aluno', value: 'ALUNO' }
   ];
   generos = [
     { label: 'Selecione', value: null },
@@ -46,8 +47,8 @@ export class PessoaFormComponent implements OnInit {
   ];
   displayImages: boolean = false;
   imagemSelecionada: any;
-  pathImgPessoaPerfil= "./../../../assets/img/pessoas_perfil/";
-  
+  pathImgPessoaPerfil = "./../../../assets/img/pessoas_perfil/";
+
   constructor(
     private pessoaService: PessoaService,
     private toastyService: ToastyService

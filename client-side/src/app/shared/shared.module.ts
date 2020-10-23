@@ -21,6 +21,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ToastyComponent } from './components/toasty/toasty.component';
@@ -50,7 +51,8 @@ import { TabelaPublicacoesDefaultComponent } from './components/tabela-publicaco
     MatExpansionModule,
     MatMenuModule,
     MatCardModule,
-
+    MatDividerModule,
+    
     SidebarModule,
     AccordionModule,
     ScrollPanelModule,

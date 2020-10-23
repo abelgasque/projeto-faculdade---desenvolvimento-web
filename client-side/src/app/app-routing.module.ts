@@ -7,7 +7,7 @@ import { PessoaComponent } from './pessoa/pessoa.component';
 import { LoginComponent } from './seguranca/login/login.component';
 import { SegurancaPessoaComponent } from './seguranca/seguranca-pessoa/seguranca-pessoa.component';
 import { SegurancaComponent } from './seguranca/seguranca.component';
-import { PublicacoesComponent } from './publicacoes/publicacoes.component';
+import { PublicacaoComponent } from './publicacao/publicacao.component';
 
 const routes: Routes = [
   {
@@ -24,8 +24,8 @@ const routes: Routes = [
       { path: 'pessoa/:idPessoa', component: SegurancaPessoaComponent },
     ]
   },
-  { path: 'pessoas', component: PessoaComponent },
-  { path: 'publicacoes', component: PublicacoesComponent },
+  { path: 'pessoa', component: PessoaComponent },
+  { path: 'publicacao', component: PublicacaoComponent },
   { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 

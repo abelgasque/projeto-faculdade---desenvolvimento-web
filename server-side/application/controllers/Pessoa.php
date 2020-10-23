@@ -10,6 +10,19 @@ class Pessoa extends RestController {
         $this->load->model('pessoa_model'); 
     }
 
+    public function getbycpf_get() {
+        $cpf = $this->uri->segment(3);
+        $resp = $this->pessoa_model->getByCpf($cpf);
+        if($resp != []) {
+            $this->response($resp, 200);   
+        }else {
+            $this->response([
+                'status'=>false,
+                'message'=>'CPF não encontrado'
+            ],404);
+        }
+    }
+
     public function inserir_post() {   
         $data = [
             'id_pessoa' => $this->post('id_pessoa'),

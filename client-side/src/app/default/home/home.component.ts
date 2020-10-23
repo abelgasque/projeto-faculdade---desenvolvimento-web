@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import AOS from 'aos';
-import { PublicacoesService } from 'src/app/publicacoes/publicacoes.service';
+import { PublicacaoService } from 'src/app/publicacao/publicacao.service';
 import { ToastyService } from 'src/app/shared/components/toasty/toasty.service';
 
 @Component({
@@ -14,19 +14,19 @@ export class HomeComponent implements OnInit {
   publicacoes: any[] = [];
 
   constructor(
-    private publicacoesService: PublicacoesService,
+    private publicacaoService: PublicacaoService,
     private toastyService: ToastyService
   ) { }
 
   ngOnInit(): void {
-    //AOS.init();
+    AOS.init();
     this.getAll();
   }
 
   getAll(){
     this.displaySpinner = true;
     this.publicacoes = [];
-    this.publicacoesService.getAll()
+    this.publicacaoService.getAll()
     .then(response => {
       if(response != null){
         this.publicacoes = response;

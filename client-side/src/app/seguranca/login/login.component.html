@@ -1,18 +1,19 @@
+<app-toasty></app-toasty>
+<app-spinner *ngIf="displaySpinner"></app-spinner>
 <div class="row" fxLayout="row" fxLayoutAlign="center center">
     <div class="box">
         <div fxLayoutAlign="center center">
             <img class="img" src="../../../assets/img/box-login.png">
             <span class="login">Login</span>
         </div>
-        <form #f="ngForm" autocomplete="off" (ngSubmit)="validar()">
+        <form #f="ngForm" autocomplete="off" (ngSubmit)="login()">
             <div class="col-12 p-fluid">
-                <label>E-mail</label>
-                <input pInputText type="text" name="email" [(ngModel)]="usuario.email" minlength="5" maxlength="50"
-                    required>
+                <label>CPF</label>
+                <p-inputMask mask="999.999.999-99" name="cpf" [(ngModel)]="cpf" required></p-inputMask>
             </div>
             <div class="col-12 p-fluid">
                 <label>Senha</label>
-                <input pInputText type="password" name="senha" [(ngModel)]="usuario.senha" minlength="5" maxlength="50"
+                <input pInputText type="password" name="senha" [(ngModel)]="senha" minlength="5" maxlength="15"
                     required>
             </div>
             <div class="col-12 p-fluid">

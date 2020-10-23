@@ -22,6 +22,12 @@ export class PessoaService {
     .then(response => response);
   }
 
+  getByCpf(cpf: string): Promise<any> {
+    return this.http.get<any>(`/api/pessoa/getbycpf/${cpf}`)
+    .toPromise()
+    .then(response => response);
+  }
+
   getAll(): Promise<any> {
     return this.http.get<any>(`/api/pessoa/listar`)
     .toPromise()

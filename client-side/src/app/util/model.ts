@@ -22,12 +22,12 @@ export class Pessoa{
 }
 
 export class Publicacao{
-    id_publicacao: number;
-    img_publicacao: string;
+    id_publicacao: number = 0;
+    img_publicacao: string = "publicacao_001.jpg";
     titulo: string;
     descricao: string;
-    tipo: string;
-    dt_publicacao: Date;
+    tipo_publicacao: string;
+    dt_publicacao: Date = new Date();
     situacao_publicacao: string = "ATIVO";
     fk_pessoa: string;
 }

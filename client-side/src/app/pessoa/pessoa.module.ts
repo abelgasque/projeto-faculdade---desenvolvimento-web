@@ -4,16 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import {ButtonModule} from 'primeng/button';
-import {TableModule} from 'primeng/table';
-import {InputTextModule} from 'primeng/inputtext';
-import {InputMaskModule} from 'primeng/inputmask';
-import {DialogModule} from 'primeng/dialog';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
-import {PanelModule} from 'primeng/panel';
-import {SelectButtonModule} from 'primeng/selectbutton';
-import {PasswordModule} from 'primeng/password';
+import { MatTabsModule } from '@angular/material/tabs';
+
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { PanelModule } from 'primeng/panel';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { PasswordModule } from 'primeng/password';
 
 import { PessoaComponent } from './pessoa.component';
 import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
@@ -23,7 +25,7 @@ import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
-    PessoaComponent, 
+    PessoaComponent,
     PessoaFormComponent
   ],
   imports: [
@@ -42,7 +44,9 @@ import { DropdownModule } from 'primeng/dropdown';
     PanelModule,
     SelectButtonModule,
     PasswordModule,
-    
+
+    MatTabsModule,
+
     SharedModule
   ],
   providers: [

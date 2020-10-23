@@ -11,7 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { DefaultModule } from './default/default.module';
 import { PessoaModule } from './pessoa/pessoa.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
-import { PublicacoesModule } from './publicacoes/publicacoes.module';
+import { PublicacaoModule } from './publicacao/publicacao.module';
 
 registerLocaleData(localePt);
 
@@ -29,7 +29,7 @@ registerLocaleData(localePt);
     DefaultModule,
     PessoaModule,
     SegurancaModule,
-    PublicacoesModule
+    PublicacaoModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },

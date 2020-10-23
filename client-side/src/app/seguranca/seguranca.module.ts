@@ -13,26 +13,33 @@ import { PessoaModule } from '../pessoa/pessoa.module';
 import { MatButtonModule } from '@angular/material/button';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import {InputMaskModule} from 'primeng/inputmask';
+
+import { ApoioService } from './../util/apoio.service';
 
 @NgModule({
   declarations: [
-    LoginComponent, 
-    SegurancaPessoaComponent, 
+    LoginComponent,
+    SegurancaPessoaComponent,
     SegurancaComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    
+
     FlexLayoutModule,
     MatButtonModule,
 
     ButtonModule,
     InputTextModule,
-    
+    InputMaskModule,
+
     SharedModule,
     PessoaModule
+  ],
+  providers: [
+    ApoioService
   ]
 })
 export class SegurancaModule { }
