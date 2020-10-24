@@ -28,6 +28,13 @@ export class PublicacaoComponent implements OnInit {
     this.getAll();
   }
 
+  retornoPersistenciaForm(event: boolean){
+    if(event){
+      this.getAll();
+    }
+    this.selected.setValue(0);
+  }
+
   getPublicacao(id: number) {
     this.publicacao = new Publicacao();
     this.titleForm = "Alterar";

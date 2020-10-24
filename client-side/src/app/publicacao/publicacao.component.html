@@ -51,7 +51,7 @@
         </p-table>
     </mat-tab>
     <mat-tab [label]="titleForm">
-        <app-publicacao-form [publicacao]="publicacao"></app-publicacao-form>
+        <app-publicacao-form [publicacao]="publicacao" (retornoPersistencia)="retornoPersistenciaForm($event)"></app-publicacao-form>
     </mat-tab>
 </mat-tab-group>
 

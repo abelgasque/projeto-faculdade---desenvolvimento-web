@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { PessoaService } from 'src/app/pessoa/pessoa.service';
 import { ToastyService } from 'src/app/shared/components/toasty/toasty.service';
 import { ApoioService } from 'src/app/util/apoio.service';
@@ -43,18 +44,20 @@ export class PublicacaoFormComponent implements OnInit {
 
   }
 
-  gerenciarPersistencia(){
+  gerenciarPersistencia(f: NgForm){
     if(this.publicacao.id_publicacao>0){
       this.atualizar();
     }else{
       this.inserir();
     }
+    f.resetForm();
   }
 
   inserir(){
     this.publicacaoService.incluir(this.publicacao)
     .then(resp=>{
       this.retornoPersistencia.emit(true);
+      this.publicacao = new Publicacao();
       this.toastyService.showSuccess("Publicação inserida com sucesso!");
     })
     .catch(resp=>{
@@ -68,6 +71,7 @@ export class PublicacaoFormComponent implements OnInit {
     this.publicacaoService.alterar(this.publicacao.id_publicacao, this.publicacao)
     .then(resp=>{
       this.retornoPersistencia.emit(true);
+      this.publicacao = new Publicacao();
       this.toastyService.showSuccess("Publicação atualizada com sucesso!");
     })
     .catch(resp=>{

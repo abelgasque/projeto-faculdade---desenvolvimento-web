@@ -17,10 +17,10 @@ CREATE TABLE pessoa(
     telefone VARCHAR(20),
     cep VARCHAR(10),
     uf VARCHAR(2),
-    cidade VARCHAR(30),
+    cidade VARCHAR(50),
     bairro VARCHAR(30),
 	logradouro VARCHAR(50),
-    complemento VARCHAR(30),
+    complemento VARCHAR(15),
 	numero VARCHAR(10)    
 );
 

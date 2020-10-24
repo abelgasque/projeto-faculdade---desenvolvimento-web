@@ -1,55 +1,55 @@
-<div class="container">
-    <form class="row" #f="ngForm" autocomplete="off" (ngSubmit)="gerenciarPersistencia()">
-        <div class="col-12 p-fluid">
+<div class="p-fluid">
+    <form class="row col-12" #f="ngForm" autocomplete="off" (ngSubmit)="gerenciarPersistencia(f)">
+        <div class="col-12">
             <div class="box">
                 <img class="img" [src]="pathImg+publicacao.img_publicacao">
                 <button type="button" label="Escolher" (click)="getImg()" pButton></button>
                 <small class="obrigatorio">Campo obrigatorio</small>
             </div>
         </div>
-        <div class="col-12 p-fluid">
+        <div class="col-12">
             <label>Titulo</label>
-            <input type="text" name="titulo" [(ngModel)]="publicacao.titulo" required maxlength="20" pInputText>
+            <input type="text" name="titulo" [(ngModel)]="publicacao.titulo" required maxlength="125" pInputText
+                required>
             <small class="obrigatorio">Campo obrigatorio</small>
         </div>
-        <div class="col-6 col-md-3 p-fluid">
+        <div class="col-6 col-md-3">
             <label>Tipo</label>
             <p-dropdown name="tipo" [options]="tipos" appendTo="body" [(ngModel)]="publicacao.tipo_publicacao"
-            appendTo="body" required>
+                appendTo="body" required>
             </p-dropdown>
             <small class="obrigatorio">Campo obrigatorio</small>
         </div>
-        <div class="col-6 col-md-2 p-fluid">
+        <div class="col-6 col-md-2">
             <label>Data publicação</label>
-            <p-calendar name="dt_publicacao" [(ngModel)]="publicacao.dt_publicacao" 
-            [locale]="apoio.language" dateFormat="dd/mm/yy" showButtonBar="true"
-            readonlyInput="false" appendTo="body" showIcon="true"
-            required></p-calendar>
+            <p-calendar name="dt_publicacao" [(ngModel)]="publicacao.dt_publicacao" [locale]="apoio.language"
+                dateFormat="dd/mm/yy" showButtonBar="true" readonlyInput="false" appendTo="body" showIcon="true"
+                required>
+            </p-calendar>
             <small class="obrigatorio">Campo obrigatorio</small>
         </div>
-        <div class="col-6 col-md-4 p-fluid">
+        <div class="col-6 col-md-4">
             <label>Pessoa</label>
             <p-dropdown name="fk_pessoa" [options]="pessoas" appendTo="body" [(ngModel)]="publicacao.fk_pessoa"
-            appendTo="body" [autoDisplayFirst]="false" [filter]="true" required>
+                appendTo="body" [autoDisplayFirst]="false" [filter]="true" required>
             </p-dropdown>
             <small class="obrigatorio">Campo obrigatorio</small>
         </div>
-        <div class="col-6 col-md-2 p-fluid">
+        <div class="col-6 col-md-2">
             <label>Situação</label>
             <p-selectButton [options]="situacoes" name="situacao" [(ngModel)]="publicacao.situacao_publicacao" required>
             </p-selectButton>
             <small class="obrigatorio">Campo obrigatorio</small>
         </div>
-        <div class="col-12 p-fluid">
+        <div class="col-12">
             <label>Descrição</label>
-            <textarea name="descricao" [rows]="15" [cols]="50" pInputTextarea 
-                [(ngModel)]="publicacao.descricao" minlength="10" maxlength="2500" required></textarea>
+            <textarea name="descricao" [rows]="15" [cols]="50" pInputTextarea [(ngModel)]="publicacao.descricao"
+                minlength="10" maxlength="2500" required></textarea>
             <small class="obrigatorio">Campo obrigatorio</small>
         </div>
-        <div class="col-12">
-            <button class="col-6 col-md-2 p-button-outlined" type="submit" [label]="'Adicionar'" 
-            (click)="gerenciarPersistencia()"[disabled]="!f.invalid" pButton></button>
-            <button class="col-6 col-md-2" type="button" [label]="'Cancelar'" pButton></button>
-        </div>
+        <button class="col-6 col-md-2 p-button-outlined" type="submit"
+            [label]="publicacao.id_publicacao == 0 ?'Adicionar':'Edição'" [disabled]="!f.valid" pButton></button>
+        <button class="col-6 col-md-2" type="button" [label]="'Cancelar'" (click)="retornoPersistencia.emit(false)"
+            pButton></button>
     </form>
 </div>

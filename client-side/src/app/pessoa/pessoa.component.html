@@ -52,10 +52,8 @@
         </p-table>
     </mat-tab>
     <mat-tab [label]="titleDisplay">
-        <div class="container">
-            <app-pessoa-form [pessoa]="pessoa" (retornoPersistencia)="getRetornoFormPessoa($event)" [isSituacao]="true"
-                [isTipo]="true"></app-pessoa-form>
-        </div>
+        <app-pessoa-form [pessoa]="pessoa" (retornoPersistencia)="getRetornoFormPessoa($event)" [isSituacao]="true"
+            [isTipo]="true"></app-pessoa-form>
     </mat-tab>
 </mat-tab-group>
 
