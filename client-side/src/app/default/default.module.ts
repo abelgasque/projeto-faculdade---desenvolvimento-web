@@ -8,11 +8,12 @@ import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { DefaultComponent } from './default.component';
 import { SharedModule } from './../shared/shared.module';
+import { LandpageComponent } from './landpage/landpage.component';
 
 @NgModule({
   declarations: [
     HomeComponent, 
-    DefaultComponent
+    DefaultComponent, LandpageComponent
   ],
   imports: [
     CommonModule,
