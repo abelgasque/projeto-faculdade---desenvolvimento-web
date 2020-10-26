@@ -11,6 +11,20 @@
 
 }
 
+.carousel-inner h3 {
+
+  color: rgb(185, 185, 185);
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.carousel-inner p {
+
+  color: rgb(185, 185, 185);
+  font-family: 'Montserrat', sans-serif;
+
+}
+
 h1{
 
     color: rgb(185, 185, 185);
@@ -125,6 +139,16 @@ h1{
 
   .card-body p {
 
-    color:  rgb(185, 185, 185);;
+    color:  rgb(185, 185, 185);
+
+  }
+
+  .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  .regras p{
+
+    color:  rgb(185, 185, 185);
 
   }
