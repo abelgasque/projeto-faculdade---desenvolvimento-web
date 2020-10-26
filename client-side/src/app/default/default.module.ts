@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { HomeComponent } from './home/home.component';
 import { DefaultComponent } from './default.component';
@@ -13,7 +14,7 @@ import { LandpageComponent } from './landpage/landpage.component';
 
 @NgModule({
   declarations: [
-    HomeComponent, 
+    HomeComponent,
     DefaultComponent, LandpageComponent
   ],
   imports: [
@@ -23,9 +24,10 @@ import { LandpageComponent } from './landpage/landpage.component';
 
     MatTabsModule,
     MatCardModule,
-    
+    MatExpansionModule,
+
     SharedModule,
-    
+
   ]
 })
 export class DefaultModule { }
