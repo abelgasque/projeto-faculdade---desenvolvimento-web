@@ -54,6 +54,7 @@ export class PublicacaoFormComponent implements OnInit {
   }
 
   inserir(){
+    console.log(this.publicacao.descricao)
     this.publicacaoService.incluir(this.publicacao)
     .then(resp=>{
       this.retornoPersistencia.emit(true);

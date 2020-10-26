@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-default',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultComponent implements OnInit {
 
+  selected = new FormControl(0);
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -8,7 +8,6 @@ class Publicacao extends RestController {
     function __construct() {
         parent::__construct();
         $this->load->model('publicacao_model'); 
-        $this->load->model('pessoa_model'); 
     }
 
     public function inserir_post() {   
@@ -89,15 +88,6 @@ class Publicacao extends RestController {
                 'status'=>false,
                 'message'=>'Id inválido!'
             ],404);
-        }
-    }
-
-    private function validarPessoaExistente($id){
-        $data = $this->pessoa_model->getById($id);
-        if($data != null || $data != []){
-            return false;
-        }else{
-            return true;
         }
     }
 }

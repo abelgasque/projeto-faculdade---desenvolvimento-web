@@ -20,9 +20,14 @@ import { PasswordModule } from 'primeng/password';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { EditorModule } from 'primeng/editor';
 
 import { SharedModule } from '../shared/shared.module';
 import { PublicacaoService } from './publicacao.service'
+
+export class EditorDemo {
+  text: string;
+}
 
 @NgModule({
   declarations: [
@@ -48,6 +53,7 @@ import { PublicacaoService } from './publicacao.service'
     PasswordModule,
     InputTextareaModule,
     CalendarModule,
+    EditorModule,
 
     SharedModule
   ],

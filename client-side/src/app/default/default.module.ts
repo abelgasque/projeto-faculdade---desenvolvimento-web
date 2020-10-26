@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { HomeComponent } from './home/home.component';
 import { DefaultComponent } from './default.component';
@@ -20,6 +21,7 @@ import { LandpageComponent } from './landpage/landpage.component';
     FormsModule,
     RouterModule,
 
+    MatTabsModule,
     MatCardModule,
     
     SharedModule,

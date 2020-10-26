@@ -12,12 +12,7 @@ import { LandpageComponent } from './default/landpage/landpage.component';
 
 const routes: Routes = [
   {
-    path: '', component: DefaultComponent,
-    children: [
-      { path: '', component: HomeComponent },
-      { path: 'landpage', component: LandpageComponent }
-    ]
-  },
+    path: '', component: DefaultComponent},
   {
     path: 'seguranca', component: SegurancaComponent,
     children: [

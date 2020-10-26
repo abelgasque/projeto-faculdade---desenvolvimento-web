@@ -10,3 +10,8 @@
 tr > td {
     padding-bottom:  20px;
 }
+
+pInputTextarea{
+    color: black !important;
+    background: none !important;
+}

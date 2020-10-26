@@ -1,10 +1,5 @@
 <p-table [value]="publicacoes" [responsive]="true" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
     currentPageReportTemplate="Registro {first} até {last} com total de {totalRecords} registros">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Publicações</th>
-        </tr>
-    </ng-template>
     <ng-template pTemplate="body" let-rowData>
         <tr style="background-color: grey;">
             <td data-aos="fade-down" data-aos-duration="1000">
@@ -18,22 +13,19 @@
                     <mat-card-content>
                         <mat-divider></mat-divider>
                         <div class="row">
-                            <div *ngIf="rowData.img_publicacao != null" class="col-12 col-md-3 box_img_publicacao">
-                                <img class="img_publicacao"
-                                    src="../../../../assets/img/publicacoes/{{rowData.img_publicacao}}">
-                            </div>
-                            <div class="col-12 col-md-9 p-fluid">
+                            <div class="col-12 p-fluid">
                                 <mat-card-title>{{rowData.titulo}}</mat-card-title>
                                 <mat-card-subtitle>{{rowData.tipo_publicacao}}</mat-card-subtitle>
-                                <textarea name="descricao" [(ngModel)]="rowData.descricao" [rows]="5" [cols]="30"
-                                    pInputTextarea autoResize="autoResize" maxlength="2000" disabled></textarea>
+                                <div class="col-12">
+                                    <p>{{rowData.descricao}}</p>
+                                </div>
                             </div>
                         </div>
-                        <mat-divider></mat-divider>
+                        <mat-divider *ngIf="isFooter"></mat-divider>
                     </mat-card-content>
                     <mat-card-actions *ngIf="isFooter">
                         <button mat-button>Editar</button>
-                        <button mat-button>Deletar</button>
+                        <button mat-button>Comentários</button>
                         <button mat-button>Detalhes</button>
                     </mat-card-actions>
                 </mat-card>
